@@ -16,12 +16,28 @@ public:
 	~gameEntity();
 
 public:
-	virtual void onRender(sf::RenderWindow& mainWindow)= 0;
+	virtual void onLoad(std::string filename);
+
+	virtual void onRender(sf::RenderWindow& mainWindow);
 	virtual void onLoop();
 	virtual void onCleanup();
+
+	virtual void setPosition(float x, float y);
+	virtual sf::Vector2f getPosition() const;
+
+	virtual bool IsLoaded() const;
+
 protected:
-	sf::Texture entityTextur;
-	sf::Vector2 pos;
+	sf::Sprite& getSprite();
+
+
+	sf::Texture entityTexture;
+	sf::Sprite entitySprite;
+
+	std::string fileName;
+	bool isLoaded;
+
+	sf::Vector2f pos;
 
 };
 
