@@ -16,9 +16,13 @@ public:
 	~gameEntity();
 
 public:
-	virtual void onRender(sf::RenderWindow& mainWindow);
+	virtual void onRender(sf::RenderWindow& mainWindow)= 0;
 	virtual void onLoop();
 	virtual void onCleanup();
+protected:
+	sf::Texture entityTextur;
+	sf::Vector2 pos;
+
 };
 
 

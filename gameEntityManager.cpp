@@ -11,11 +11,10 @@ std::map<std::string, gameEntity*> gameEntityManager::_gameObjects;
 gameEntityManager::gameEntityManager(){
 
 }
+
 gameEntityManager::~gameEntityManager(){
 	std::for_each(_gameObjects.begin(),_gameObjects.end(),gameEntityDeallocator());
 }
-
-
 
 void gameEntityManager::addEntity(std::string name, gameEntity* entity){
 	_gameObjects.insert(std::pair<std::string,gameEntity*>(name, entity));
